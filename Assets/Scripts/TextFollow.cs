@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
-	
+public class TextFollow : MonoBehaviour {
+
 	private Vector2 velocity;
 
 	public float smoothTimeY;
 	public float smoothTimeX;
+	public float i = -0.3f;
 
 	public GameObject player;
 	/// <summary>
@@ -19,12 +20,11 @@ public class CameraFollow : MonoBehaviour {
 	/// Update this instance.
 	/// </summary>
 	void Update () {
-		
+
 		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		//smooths x-axis movement
-		float posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY); 
-		//smooths y-axis movement
-		transform.position = new Vector3 (posX, posY, transform.position.z); 
+
+		transform.position = new Vector3 (posX+i, 1, transform.position.z); 
 		// Doesn't affact z-axis
 	}
 }
