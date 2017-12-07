@@ -21,10 +21,10 @@ public class TextFollow : MonoBehaviour {
 	/// </summary>
 	void Update () {
 
-		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
+		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x+i, ref velocity.x, smoothTimeX);
 		//smooths x-axis movement
 
-		transform.position = new Vector3 (posX+i, 1, transform.position.z); 
+		transform.position = new Vector3 (posX, 1, transform.position.z); 
 		// Doesn't affact z-axis
 	}
 }
